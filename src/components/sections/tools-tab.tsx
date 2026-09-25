@@ -12,6 +12,7 @@ import {
 } from '@/icons/icons';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { RevealAnimation } from "@/components/animation/RevealAnimation";
 
 // Define the tab type
 interface Tab {
@@ -88,20 +89,25 @@ export default function AIToolsTabs() {
     <section className="py-14 md:py-28 dark:bg-dark-primary">
       <div className="wrapper">
         <div className="max-w-2xl mx-auto mb-12 text-center">
-          <h2 className="mb-3 font-bold text-center text-gray-800 dark:text-white/90 text-3xl md:text-title-lg">
-            All the AI tools you need, at your Fingertips.
-          </h2>
-          <p className="max-w-2xl mx-auto leading-6 text-gray-500 dark:text-gray-400">
-            Unlock the Potential of Innovation, Discover the Advanced AI Tools
-            Transforming Your Ideas into Reality with Unmatched Precision and
-            Intelligence.
-          </p>
+          <RevealAnimation delay={0.1}>
+            <h2 className="mb-3 font-bold text-center text-gray-800 dark:text-white/90 text-3xl md:text-title-lg">
+              All the AI tools you need, at your Fingertips.
+            </h2>
+          </RevealAnimation>
+          <RevealAnimation delay={0.2}>
+            <p className="max-w-2xl mx-auto leading-6 text-gray-500 dark:text-gray-400">
+              Unlock the Potential of Innovation, Discover the Advanced AI Tools
+              Transforming Your Ideas into Reality with Unmatched Precision and
+              Intelligence.
+            </p>
+          </RevealAnimation>
         </div>
 
         <div className="max-w-[1008px] mx-auto">
           <div>
             {/* Tab Navigation */}
-            <div className="overflow-x-auto custom-scrollbar mx-auto max-w-fit relative">
+            <RevealAnimation delay={0.3} direction="up">
+              <div className="overflow-x-auto custom-scrollbar mx-auto max-w-fit relative">
               <div className="flex gap-2 min-w-max rounded-full bg-gray-100 dark:bg-white/5 p-1">
                 {tabs.map((tab) => (
                   <button
@@ -118,11 +124,13 @@ export default function AIToolsTabs() {
                   </button>
                 ))}
               </div>
-            </div>
+              </div>
+            </RevealAnimation>
 
             {/* Tab Content */}
 
-            <div className="p-6 tab-img-bg overflow-hidden rounded-4xl mt-8">
+            <RevealAnimation delay={0.4} useSpring={true}>
+              <div className="p-6 tab-img-bg overflow-hidden rounded-4xl mt-8">
               <div className="p-3 tab-img-overlay">
                 {tabs.map((tab) => (
                   <Fragment key={tab.id}>
@@ -154,10 +162,12 @@ export default function AIToolsTabs() {
                   </Fragment>
                 ))}
               </div>
-            </div>
+              </div>
+            </RevealAnimation>
 
             {/* Bottom Section */}
-            <div className="mt-6 text-center">
+            <RevealAnimation delay={0.5} direction="up">
+              <div className="mt-6 text-center">
               <h2 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90">
                 {currentTab.title}
               </h2>
@@ -167,7 +177,8 @@ export default function AIToolsTabs() {
               <button className="px-6 py-3 text-sm font-medium text-white transition-colors rounded-full bg-primary-500 hover:bg-primary-600">
                 Try it now for free
               </button>
-            </div>
+              </div>
+            </RevealAnimation>
           </div>
         </div>
       </div>

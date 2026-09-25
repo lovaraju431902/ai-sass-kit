@@ -2,6 +2,7 @@
 
 import { MinusIcon, PlusIcon } from "@/icons/icons";
 import { useState } from "react";
+import { RevealAnimation } from "@/components/animation/RevealAnimation";
 
 // Define the FAQ item type
 interface FAQItem {
@@ -55,23 +56,30 @@ export default function FaqAccordion() {
     <section id="faq" className="py-14 md:py-28 dark:bg-[#171f2e]">
       <div className="wrapper">
         <div className="max-w-2xl mx-auto mb-12 text-center">
-          <h2 className="mb-3 font-bold text-center text-gray-800 text-3xl dark:text-white/90 md:text-title-lg">
-            Frequently Asked Questions
-          </h2>
-          <p className="max-w-md mx-auto leading-6 text-gray-500 dark:text-gray-400">
-            Answered all frequently asked questions, Still confused? feel free
-            contact with us
-          </p>
+          <RevealAnimation delay={0.1}>
+            <h2 className="mb-3 font-bold text-center text-gray-800 text-3xl dark:text-white/90 md:text-title-lg">
+              Frequently Asked Questions
+            </h2>
+          </RevealAnimation>
+          <RevealAnimation delay={0.2}>
+            <p className="max-w-md mx-auto leading-6 text-gray-500 dark:text-gray-400">
+              Answered all frequently asked questions, Still confused? feel free
+              contact with us
+            </p>
+          </RevealAnimation>
         </div>
         <div className="max-w-[600px] mx-auto">
           <div className="space-y-4">
-            {faqItems.map((item) => (
-              <FAQItem
-                key={item.id}
-                item={item}
-                isActive={activeItem === item.id}
-                onToggle={() => toggleItem(item.id)}
-              />
+            {faqItems.map((item, index) => (
+              <RevealAnimation key={item.id} delay={0.1 + index * 0.1}>
+                <div>
+                  <FAQItem
+                    item={item}
+                    isActive={activeItem === item.id}
+                    onToggle={() => toggleItem(item.id)}
+                  />
+                </div>
+              </RevealAnimation>
             ))}
           </div>
         </div>

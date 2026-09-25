@@ -3,50 +3,70 @@
 import Link from 'next/link';
 import { SignInWithGithub, SignInWithGoogle } from '../_components/social-auth';
 import SignInForm from './signin-form';
+import { RevealAnimation } from "@/components/animation/RevealAnimation";
+
 
 export default function SignInPage() {
   return (
     <section className="py-28 relative overflow-hidden">
       <div className="wrapper">
         <div className="relative max-w-[600px] mx-auto">
-          <div className="contact-wrapper border p-8 sm:p-14 relative z-30 bg-white dark:bg-dark-primary dark:border-dark-primary border-gray-100">
-            <div className="text-center mb-8">
-              <h3 className="text-gray-800 dark:text-white/90 font-bold text-3xl mb-2">
-                Sign In
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Enter your email and password to sign in!
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row justify-center gap-y-3.5 gap-x-5">
-              <SignInWithGoogle />
-              <SignInWithGithub />
-            </div>
-            <div className="relative py-3 sm:py-5">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200 dark:border-gray-800"></div>
+          <RevealAnimation delay={0.1}>
+            <div className="contact-wrapper border p-8 sm:p-14 relative z-30 bg-white dark:bg-dark-primary dark:border-dark-primary border-gray-100">
+              <div className="text-center mb-8">
+                <RevealAnimation delay={0.2} direction='left'>
+                  <h3 className="text-gray-800 dark:text-white/90 font-bold text-3xl mb-2">
+                    Sign In
+                  </h3>
+                </RevealAnimation>
+                <RevealAnimation delay={0.3} direction='right'>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    Enter your email and password to sign in!
+                  </p>
+                </RevealAnimation>
               </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="p-2 text-gray-400 bg-white dark:bg-dark-primary sm:px-5 sm:py-2">
-                  Or
-                </span>
-              </div>
-            </div>
+              <RevealAnimation delay={0.4} direction='up'>
+                <div className="flex flex-col sm:flex-row justify-center gap-y-3.5 gap-x-5">
 
-            <SignInForm />
+                  <SignInWithGoogle />
 
-            <div className="mt-5">
-              <p className="text-gray-700 dark:text-gray-400 text-sm">
-                Don’t have an account?{' '}
-                <Link
-                  href="/signup"
-                  className="text-sm font-semibold text-primary-500"
-                >
-                  Sign Up
-                </Link>
-              </p>
+
+                  <SignInWithGithub />
+
+                </div>
+              </RevealAnimation>
+              <RevealAnimation delay={0.6} direction='down'>
+                <div className="relative py-3 sm:py-5">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-200 dark:border-gray-800"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="p-2 text-gray-400 bg-white dark:bg-dark-primary sm:px-5 sm:py-2">
+                      Or
+                    </span>
+                  </div>
+                </div>
+              </RevealAnimation>
+              <RevealAnimation delay={0.7} direction='left'>
+                <div>
+                  <SignInForm />
+                </div>
+              </RevealAnimation>
+              <RevealAnimation delay={0.7} direction='right'>
+                <div className="mt-5">
+                  <p className="text-gray-700 dark:text-gray-400 text-sm">
+                    Don’t have an account?{' '}
+                    <Link
+                      href="/signup"
+                      className="text-sm font-semibold text-primary-500"
+                    >
+                      Sign Up
+                    </Link>
+                  </p>
+                </div>
+              </RevealAnimation>
             </div>
-          </div>
+          </RevealAnimation>
         </div>
       </div>
 

@@ -3,6 +3,7 @@ import { ThemeProvider } from 'next-themes';
 import { Onest } from 'next/font/google';
 import './globals.css';
 import { ToasterProvider } from './providers/toaster';
+import { SmoothScrollProvider } from '@/components/shared/SmoothScrollProvider';
 
 const onest = Onest({
   subsets: ['latin'],
@@ -31,8 +32,9 @@ export default function RootLayout({
           {/* ToasterProvider must render before the children components */}
           {/* https://github.com/emilkowalski/sonner/issues/168#issuecomment-1773734618 */}
           <ToasterProvider />
-
-          <div className="isolate flex flex-col flex-1">{children}</div>
+          <SmoothScrollProvider>
+            <div className="isolate flex flex-col flex-1">{children}</div>
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

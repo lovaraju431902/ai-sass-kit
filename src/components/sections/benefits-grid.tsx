@@ -1,25 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { RevealAnimation } from "@/components/animation/RevealAnimation";
 
 export default function BenefitsGrid() {
   return (
     <section className="bg-gray-900 py-14 md:py-28">
       <div className="wrapper">
         <div className="max-w-2xl mx-auto mb-12 text-center">
-          <h2 className="max-w-lg mx-auto mb-3 font-bold text-center text-white dark:text-white/90 text-3xl md:text-title-lg">
-            The key benefits of using our tools.
-          </h2>
-          <p className="max-w-2xl mx-auto text-base dark: font-normal leading-6 text-white/50">
-            Unlock the Potential of Innovation. Discover the Advanced AI Tools
-            Transforming Your Ideas into Reality with Unmatched Precision and
-            Intelligence.
-          </p>
+          <RevealAnimation delay={0.1}>
+            <h2 className="max-w-lg mx-auto mb-3 font-bold text-center text-white dark:text-white/90 text-3xl md:text-title-lg">
+              The key benefits of using our tools.
+            </h2>
+          </RevealAnimation>
+          <RevealAnimation delay={0.2}>
+            <p className="max-w-2xl mx-auto text-base dark: font-normal leading-6 text-white/50">
+              Unlock the Potential of Innovation. Discover the Advanced AI Tools
+              Transforming Your Ideas into Reality with Unmatched Precision and
+              Intelligence.
+            </p>
+          </RevealAnimation>
         </div>
         <div className="max-w-[1008px] mx-auto">
           <div className="grid lg:grid-cols-12 gap-8">
             <div className="lg:col-span-6">
-              <div className="relative flex flex-col justify-between bg-primary-500 rounded-[20px] p-9 md:p-13">
+              <RevealAnimation delay={0.3} useSpring={true} className="h-full">
+                <div className="relative flex flex-col justify-between bg-primary-500 rounded-[20px] p-9 md:p-13 h-full">
                 <div className="max-w-sm mb-32">
                   <h3 className="font-bold text-white text-2xl md:text-3xl mb-4">
                     Craft Professional-Grade Content with AI
@@ -170,10 +176,12 @@ export default function BenefitsGrid() {
                     sizes="100vw"
                   />
                 </div>
-              </div>
+                </div>
+              </RevealAnimation>
             </div>
             <div className="lg:col-span-6">
-              <div className="benefits-bg rounded-[20px] p-12 overflow-hidden">
+              <RevealAnimation delay={0.4} useSpring={true} className="h-full">
+                <div className="benefits-bg rounded-[20px] p-12 overflow-hidden h-full">
                 <div>
                   <Image
                     src="/images/benefits/bn-2.svg"
@@ -191,10 +199,12 @@ export default function BenefitsGrid() {
                     Tools Intelligence.
                   </p>
                 </div>
-              </div>
+                </div>
+              </RevealAnimation>
             </div>
             <div className="lg:col-span-12">
-              <div className="lg:px-12 p-8 bg-[#2D0B70] lg:pb-0 lg:p-12 relative rounded-[20px] h-full lg:flex lg:flex-row justify-between bg-cover flex-col gap-5">
+              <RevealAnimation delay={0.5} useSpring={true} direction="up" className="h-full">
+                <div className="lg:px-12 p-8 bg-[#2D0B70] lg:pb-0 lg:p-12 relative rounded-[20px] h-full lg:flex lg:flex-row justify-between bg-cover flex-col gap-5">
                 <div className="max-w-sm relative z-10">
                   <h3 className="font-bold text-white text-2xl md:text-3xl mb-4">
                     Overcome Writers Block Today
@@ -227,6 +237,7 @@ export default function BenefitsGrid() {
                   height={399}
                 />
               </div>
+              </RevealAnimation>
             </div>
           </div>
         </div>

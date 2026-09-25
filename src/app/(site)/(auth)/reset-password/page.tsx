@@ -2,6 +2,7 @@ import { GradientBlob2 } from '@/components/gradient-blob';
 import type { Metadata } from 'next';
 import ForgotPasswordForm from './_components/forgot-password';
 import ResetPasswordForm from './_components/reset-password';
+import { RevealAnimation } from "@/components/animation/RevealAnimation";
 
 type PageProps = {
   searchParams: Promise<{ token: string | undefined }>;
@@ -26,15 +27,17 @@ export default async function ResetPasswordPage({ searchParams }: PageProps) {
     <section className="py-28 relative overflow-hidden">
       <div className="wrapper">
         <div className="relative max-w-[592px] mx-auto">
-          <div className="contact-wrapper border p-14 relative z-30 bg-white dark:bg-dark-primary dark:border-dark-primary border-gray-100">
-            {tokenVerified ? (
-              <ResetPasswordForm resetToken={token!} />
-            ) : (
-              <ForgotPasswordForm
-                invalidToken={Boolean(token && !tokenVerified)}
-              />
-            )}
-          </div>
+          <RevealAnimation delay={0.1} useSpring={true}>
+            <div className="contact-wrapper border p-14 relative z-30 bg-white dark:bg-dark-primary dark:border-dark-primary border-gray-100">
+              {tokenVerified ? (
+                <ResetPasswordForm resetToken={token!} />
+              ) : (
+                <ForgotPasswordForm
+                  invalidToken={Boolean(token && !tokenVerified)}
+                />
+              )}
+            </div>
+          </RevealAnimation>
         </div>
       </div>
 

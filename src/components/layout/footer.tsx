@@ -1,6 +1,7 @@
 import { getCurrentYear } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { RevealAnimation } from "@/components/animation/RevealAnimation";
 
 export default function Footer() {
   return (
@@ -45,8 +46,9 @@ export default function Footer() {
         <div className="container px-5 mx-auto sm:px-7">
           <div className="grid gap-y-8 gap-x-6 lg:grid-cols-12">
             <div className="lg:col-span-3 xl:col-span-4">
-              <div>
-                <Link href="/" className="block mb-6">
+              <RevealAnimation delay={0.1}>
+                <div>
+                  <Link href="/" className="block mb-6">
                   <Image
                     src="/images/logo-white.svg"
                     alt="logo"
@@ -201,11 +203,13 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
+              </RevealAnimation>
             </div>
             <div className="lg:col-span-6 xl:col-span-5">
               <div className="grid sm:grid-cols-3 gap-7">
-                <div>
-                  <span className="block mb-6 text-sm text-gray-400">
+                <RevealAnimation delay={0.2}>
+                  <div>
+                    <span className="block mb-6 text-sm text-gray-400">
                     Services
                   </span>
                   <nav className="flex flex-col space-y-3">
@@ -241,8 +245,10 @@ export default function Footer() {
                     </Link>
                   </nav>
                 </div>
-                <div>
-                  <span className="block mb-6 text-sm text-gray-400">
+                </RevealAnimation>
+                <RevealAnimation delay={0.3}>
+                  <div>
+                    <span className="block mb-6 text-sm text-gray-400">
                     Features
                   </span>
                   <nav className="flex flex-col space-y-3">
@@ -278,8 +284,10 @@ export default function Footer() {
                     </Link>
                   </nav>
                 </div>
-                <div>
-                  <span className="relative block mb-6 text-sm text-gray-400">
+                </RevealAnimation>
+                <RevealAnimation delay={0.4}>
+                  <div>
+                    <span className="relative block mb-6 text-sm text-gray-400">
                     Account
                   </span>
                   <nav className="flex flex-col space-y-3">
@@ -309,11 +317,13 @@ export default function Footer() {
                     </Link>
                   </nav>
                 </div>
+                </RevealAnimation>
               </div>
             </div>
             <div className="lg:col-span-3">
-              <div>
-                <span className="block mb-6 text-sm text-gray-400">
+              <RevealAnimation delay={0.5}>
+                <div>
+                  <span className="block mb-6 text-sm text-gray-400">
                   Stay In Touch
                 </span>
                 <p className="block mb-5 text-sm text-gray-400">
@@ -333,18 +343,21 @@ export default function Footer() {
                   </div>
                 </form>
               </div>
+              </RevealAnimation>
             </div>
           </div>
         </div>
       </div>
       <div className="border-t border-gray-800">
-        <div className="container relative z-10 px-5 mx-auto sm:px-7">
-          <div className="py-5 text-center">
+        <RevealAnimation delay={0.6}>
+          <div className="container relative z-10 px-5 mx-auto sm:px-7">
+            <div className="py-5 text-center">
             <p className="text-sm text-gray-500">
               &copy; {getCurrentYear()} AiStarterKit - All Rights Reserved.
             </p>
           </div>
         </div>
+        </RevealAnimation>
       </div>
     </footer>
   );

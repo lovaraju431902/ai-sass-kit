@@ -3,6 +3,7 @@ import Link from 'next/link';
 import HeroLogos from '../hero-logos';
 import { Subheading } from './subheading';
 import { IntroVideo } from './intro-video';
+import { RevealAnimation } from "@/components/animation/RevealAnimation";
 
 export default function HeroSection() {
   return (
@@ -11,45 +12,58 @@ export default function HeroSection() {
         <div className="wrapper">
           <div className="max-w-[800px] mx-auto">
             <div className="text-center pb-16">
-              <Subheading text="Most Powerful AI Tools at One Place" />
+              <RevealAnimation delay={0.1} instant={true}>
+                <div>
+                  <Subheading text="Most Powerful AI Tools at One Place" />
+                </div>
+              </RevealAnimation>
 
-              <h1 className="text-gray-700 mx-auto font-bold mb-4 text-4xl sm:text-[50px] dark:text-white/90 sm:leading-[64px] max-w-[700px]">
-                Transform Ideas into Reality with Intelligent AI Tools
-              </h1>
-              <p className="max-w-[537px] text-center mx-auto dark:text-gray-400 text-gray-500 text-base">
-                Unleash the Power of Artificial Intelligence to Streamline Your
-                Workflow, Boost Productivity, and Redefine Success.
-              </p>
+              <RevealAnimation delay={0.2} instant={true}>
+                <h1 className="text-gray-700 mx-auto font-bold mb-4 text-4xl sm:text-[50px] dark:text-white/90 sm:leading-[64px] max-w-[700px]">
+                  Transform Ideas into Reality with Intelligent AI Tools
+                </h1>
+              </RevealAnimation>
+              
+              <RevealAnimation delay={0.3} instant={true}>
+                <p className="max-w-[537px] text-center mx-auto dark:text-gray-400 text-gray-500 text-base">
+                  Unleash the Power of Artificial Intelligence to Streamline Your
+                  Workflow, Boost Productivity, and Redefine Success.
+                </p>
+              </RevealAnimation>
 
-              <div className="mt-9 flex sm:flex-row flex-col gap-3 relative z-30 items-center justify-center">
-                <Link
-                  href="/text-generator"
-                  className="bg-primary-500 transition h-12 inline-flex items-center justify-center hover:bg-primary-600 px-6 py-3 rounded-full text-white text-sm"
-                >
-                  Explore app
-                </Link>
+              <RevealAnimation delay={0.4} direction="up" instant={true}>
+                <div className="mt-9 flex sm:flex-row flex-col gap-3 relative z-30 items-center justify-center">
+                  <Link
+                    href="/text-generator"
+                    className="bg-primary-500 transition h-12 inline-flex items-center justify-center hover:bg-primary-600 px-6 py-3 rounded-full text-white text-sm"
+                  >
+                    Explore app
+                  </Link>
 
-                <IntroVideo />
-              </div>
+                  <IntroVideo />
+                </div>
+              </RevealAnimation>
             </div>
           </div>
           <div className="max-w-[1000px] mx-auto relative">
-            <div className="p-3 sm:p-[18px] relative z-30 rounded-[32px] border border-white/30 dark:border-white/10 bg-white/20">
-              <Image
-                src="/images/hero/hero-img.jpg"
-                alt=""
-                className="w-full rounded-2xl block dark:hidden"
-                width={966}
-                height={552}
-              />
-              <Image
-                src="/images/hero/hero-img-dark.png"
-                alt=""
-                className="w-full rounded-2xl hidden dark:block"
-                width={966}
-                height={552}
-              />
-            </div>
+            <RevealAnimation delay={0.5} useSpring={true} instant={true}>
+              <div className="p-3 sm:p-[18px] relative z-30 rounded-[32px] border border-white/30 dark:border-white/10 bg-white/20">
+                <Image
+                  src="/images/hero/hero-img.jpg"
+                  alt=""
+                  className="w-full rounded-2xl block dark:hidden"
+                  width={966}
+                  height={552}
+                />
+                <Image
+                  src="/images/hero/hero-img-dark.png"
+                  alt=""
+                  className="w-full rounded-2xl hidden dark:block"
+                  width={966}
+                  height={552}
+                />
+              </div>
+            </RevealAnimation>
             <div className="absolute hidden lg:block z-10 -top-20 -translate-y-20 left-1/2 -translate-x-1/2">
               <svg
                 width="1300"

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { RevealAnimation } from "@/components/animation/RevealAnimation";
 
   const testimonials = [
     {
@@ -91,23 +92,30 @@ import { useState } from 'react';
         <div className="wrapper">
           <div>
             <div className="max-w-2xl mx-auto mb-12 text-center">
-              <h2 className="mb-3 font-bold text-center text-gray-800 text-3xl dark:text-white/90 md:text-title-lg">
-                What our users say
-              </h2>
-              <p className="max-w-xl mx-auto leading-6 text-gray-500 dark:text-gray-400">
-                Unlock the Potential of Innovation. Discover the Advanced AI
-                Tools Transforming Your Ideas into Reality with Unmatched
-                Precision and Intelligence.
-              </p>
+              <RevealAnimation delay={0.1}>
+                <h2 className="mb-3 font-bold text-center text-gray-800 text-3xl dark:text-white/90 md:text-title-lg">
+                  What our users say
+                </h2>
+              </RevealAnimation>
+              <RevealAnimation delay={0.2}>
+                <p className="max-w-xl mx-auto leading-6 text-gray-500 dark:text-gray-400">
+                  Unlock the Potential of Innovation. Discover the Advanced AI
+                  Tools Transforming Your Ideas into Reality with Unmatched
+                  Precision and Intelligence.
+                </p>
+              </RevealAnimation>
             </div>
 
             {/* Testimonials Grid */}
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 max-w-[72rem] mx-auto">
-              {visibleTestimonials.map((testimonial) => (
-                <TestimonialCard
-                  key={testimonial.id}
-                  testimonial={testimonial}
-                />
+              {visibleTestimonials.map((testimonial, i) => (
+                <RevealAnimation key={testimonial.id} delay={0.1 + i * 0.1}>
+                  <div className="h-full">
+                    <TestimonialCard
+                      testimonial={testimonial}
+                    />
+                  </div>
+                </RevealAnimation>
               ))}
             </div>
 

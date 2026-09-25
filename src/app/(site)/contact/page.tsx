@@ -2,6 +2,7 @@ import { Input } from '@/components/ui/inputs';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/inputs/textarea';
 import type { Metadata } from 'next';
+import { RevealAnimation } from "@/components/animation/RevealAnimation";
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -12,8 +13,9 @@ export default function ContactPage() {
     <section className="py-28 relative">
       <div className="wrapper">
         <div className="relative max-w-[800px] mx-auto">
-          <div className="contact-wrapper border p-14 relative z-30 bg-white border-gray-100 dark:bg-dark-primary dark:border-gray-800">
-            <div className="text-center mb-12">
+          <RevealAnimation delay={0.1} useSpring={true}>
+            <div className="contact-wrapper border p-14 relative z-30 bg-white border-gray-100 dark:bg-dark-primary dark:border-gray-800">
+              <div className="text-center mb-12">
               <h3 className="text-gray-800 font-bold dark:text-white text-3xl mb-2">
                 Need any Help? Get in touch 👋
               </h3>
@@ -45,8 +47,9 @@ export default function ContactPage() {
                   </button>
                 </div>
               </div>
-            </form>
-          </div>
+              </form>
+            </div>
+          </RevealAnimation>
         </div>
       </div>
       <span className="absolute -bottom-32 left-1/2 -translate-x-1/2 z-0">
